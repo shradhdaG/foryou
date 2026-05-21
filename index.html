@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Didi 💕</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+:root{
+--rose:#c2697a;
+--cream:#fdf6f0;
+--script:'Great Vibes', cursive;
+--sans:'Lato', sans-serif;
+}
+
+body{
+font-family:var(--sans);
+background:var(--cream);
+overflow:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:15px;
+left:50%;
+transform:translateX(-50%);
+z-index:1000;
+
+padding:12px;
+background:rgba(255,255,255,.25);
+backdrop-filter:blur(15px);
+
+border-radius:40px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.nav-links{
+display:flex;
+gap:12px;
+list-style:none;
+}
+
+.nav-links a{
+
+padding:14px 25px;
+
+border-radius:20px;
+
+background:black;
+
+color:white;
+
+text-decoration:none;
+
+cursor:pointer;
+
+font-weight:900; /* bold */
+
+font-size:18px;
+
+letter-spacing:1px;
+
+transition:.4s;
+}
+
+.nav-links a:hover{
+
+background:var(--rose);
+
+transform:translateY(-4px);
+
+}
+
+/* PAGE SLIDER */
+
+.page-container{
+
+display:flex;
+
+height:100vh;
+
+overflow-x:auto;
+
+scroll-snap-type:x mandatory;
+
+scroll-behavior:smooth;
+
+scrollbar-width:none;
+}
+
+.page-container::-webkit-scrollbar{
+display:none;
+}
+
+.page-card{
+
+min-width:100vw;
+
+height:100vh;
+
+scroll-snap-align:center;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:90px 30px;
+}
+
+
+/* HOME */
+
+#home{
+
+width:100%;
+height:85vh;
+
+padding:70px;
+
+display:flex;
+align-items:center;
+
+border-radius:35px;
+
+color:white;
+
+background:
+linear-gradient(
+rgba(0,0,0,.5),
+rgba(0,0,0,.5)
+),
+url("https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=2000");
+
+background-size:cover;
+background-position:center;
+
+box-shadow:0 20px 60px rgba(0,0,0,.2);
+}
+
+.hero-title{
+
+font-family:var(--script);
+
+font-size:6rem;
+}
+
+.hero-tagline{
+
+margin-top:15px;
+
+font-size:1.3rem;
+}
+
+.hero-body{
+
+margin-top:25px;
+
+line-height:2;
+}
+
+.hero-script{
+
+display:block;
+
+margin-top:30px;
+
+font-family:var(--script);
+
+font-size:2rem;
+}
+
+/* CARDS */
+
+.card-box{
+
+width:90%;
+max-width:550px;
+
+background:white;
+
+padding:30px;
+
+border-radius:35px;
+
+text-align:center;
+
+box-shadow:0 15px 50px rgba(0,0,0,.2);
+}
+
+.card-box img{
+
+width:100%;
+height:300px;
+
+object-fit:cover;
+
+border-radius:25px;
+
+margin-bottom:20px;
+}
+
+.card-title{
+
+font-size:2.4rem;
+
+font-family:var(--script);
+
+color:#c2697a;
+}
+
+.card-text{
+
+margin-top:15px;
+
+line-height:1.8;
+
+color:#654242;
+}
+
+
+/* SURPRISE BUTTON */
+
+.surprise-btn,
+.secret-btn{
+
+margin-top:25px;
+
+padding:14px 35px;
+
+border:none;
+
+border-radius:40px;
+
+background:#c2697a;
+
+color:white;
+
+cursor:pointer;
+
+font-size:1rem;
+
+transition:.4s;
+}
+
+.surprise-btn:hover,
+.secret-btn:hover{
+
+transform:scale(1.08);
+}
+
+
+/* POPUP */
+
+.modal-overlay{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.85);
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+opacity:0;
+
+pointer-events:none;
+
+transition:.5s;
+
+z-index:9999;
+}
+
+.modal-overlay.active{
+
+opacity:1;
+
+pointer-events:auto;
+}
+
+.modal-box{
+
+background:#2d1a1a;
+
+padding:50px;
+
+width:90%;
+max-width:500px;
+
+border-radius:35px;
+
+text-align:center;
+
+transform:scale(.7);
+
+transition:.5s;
+
+color:white;
+}
+
+.modal-overlay.active .modal-box{
+
+transform:scale(1);
+}
+
+.modal-box h1{
+
+font-family:var(--script);
+
+font-size:3rem;
+}
+
+.hidden-secret{
+
+margin-top:20px;
+
+opacity:0;
+
+transition:.5s;
+}
+
+.hidden-secret.show{
+
+opacity:1;
+}
+
+.home-image{
+
+display:flex;
+
+justify-content:center;
+
+margin-bottom:25px;
+
+}
+
+.home-image img{
+
+width:280px;
+
+height:350px;
+
+object-fit:cover;
+
+border-radius:25px;
+
+border:4px solid white;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.3);
+
+transition:.4s;
+}
+
+.home-image img:hover{
+
+transform:scale(1.05);
+
+}
+#home{
+
+position:relative;
+
+}
+#home{
+
+position:relative;
+
+}
+
+.home-image{
+
+position:absolute;
+
+top:40px;
+
+right:50px;
+
+z-index:10;
+
+}
+
+.home-image img{
+
+width:220px;
+
+height:280px;
+
+object-fit:cover;
+
+border-radius:25px;
+
+border:4px solid white;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.3);
+
+transition:.4s;
+
+}
+
+.home-image img:hover{
+
+transform:scale(1.05);
+
+}
+.home-image{
+
+position:absolute;
+
+top:10px;
+
+right:20px;
+
+z-index:10;
+
+}
+
+.home-image img{
+
+width:450px;
+
+height:580px;
+
+object-fit:cover;
+
+border-radius:30px;
+
+border:5px solid white;
+
+box-shadow:
+0 12px 35px rgba(0,0,0,.35);
+
+transition:.4s;
+
+}
+
+.home-image img:hover{
+
+transform:scale(1.05);
+
+}
+/* SWIPE BUTTONS */
+
+.swipe-buttons{
+
+position:fixed;
+
+bottom:20px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+display:flex;
+
+gap:20px;
+
+z-index:1000;
+}
+
+.swipe-buttons button{
+
+padding:14px 25px;
+
+border:none;
+
+border-radius:40px;
+
+background:black;
+
+color:white;
+
+font-weight:bold;
+
+font-size:16px;
+
+cursor:pointer;
+}
+
+.swipe-buttons button:hover{
+
+background:var(--rose);
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<ul class="nav-links">
+
+<li><a onclick="goCard(0)">Home</a></li>
+
+<li><a onclick="goCard(1)">Memories</a></li>
+
+<li><a onclick="goCard(2)">Letter</a></li>
+
+<li><a onclick="goCard(3)">Surprise</a></li>
+
+</ul>
+
+</nav>
+
+
+<div class="page-container">
+
+
+<!-- HOME -->
+
+
+<audio id="bgMusic" loop>
+   <source src="Beloved(chosic.com).mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const music = document.getElementById("bgMusic");
+
+window.onload = function(){
+
+music.volume = 0.7;
+
+let playPromise = music.play();
+
+if(playPromise !== undefined){
+
+playPromise.catch(()=>{
+
+document.addEventListener(
+"click",
+startMusic,
+{once:true}
+);
+
+document.addEventListener(
+"touchstart",
+startMusic,
+{once:true}
+);
+
+});
+
+}
+
+}
+
+function startMusic(){
+
+music.play();
+
+}
+
+</script>
+
+<div class="page-card">
+
+<section id="home">
+
+<div>
+
+<h1 class="hero-title">
+Happy Birthday<br> kirti Didi ♡
+</h1>
+
+<p class="hero-tagline">
+To the most special person in my life
+</p>
+
+<p class="hero-body">
+
+Thank you for always being my strength,
+my guide  and my  best didi forever.
+Every moment with you becomes a memory I cherish forever..!!!
+
+</p>
+<div class="home-image">
+
+<img src="cake.png" alt="Kirti Didi">
+
+</div>
+
+<span class="hero-script">
+keep always shining dear diiii 💕
+</span>
+
+</div>
+
+</section>
+
+</div>
+<!-- MEMORIES -->
+
+<div class="page-card">
+
+<div class="card-box">
+
+<h2 class="card-title">
+Our Memories ♡
+</h2>
+
+<p class="card-text">
+Every picture holds a beautiful memory 💕
+</p>
+
+<div class="memory-gallery">
+
+<img src="WhatsApp Image 2026-05-20 at 2.26.53 PM copy 2.jpeg">
+<img src="WhatsApp Image 2026-05-20 at 2.26.55 PM (2).jpeg">
+<img src="1.jpg">
+<img src="WhatsApp Image 2026-05-20 at 2.26.54 PM.jpeg">
+
+<img src="WhatsApp Image 2026-05-20 at 2.26.55 PM (1).jpeg">
+<img src="IMG_20260126_095009756_HDR.jpg">
+<img src="WhatsApp Image 2026-05-20 at 2.26.55 PM.jpeg">
+<img src="IMG_20260126_094904742_HDR.jpg">
+
+<img src="WhatsApp Image 2026-05-20 at 2.26.54 PM (1).jpeg">
+<img src="WhatsApp Image 2026-05-20 at 2.26.56 PM (1).jpeg">
+<img src="IMG_20260126_095028031_HDR.jpg">
+<img src="WhatsApp Image 2026-05-20 at 2.26.56 PM.jpeg">
+
+</div>
+
+</div>
+
+</div>
+
+<style>
+
+/* MEMORIES CARD */
+
+.card-box{
+
+width:95%;
+
+max-width:1100px;
+
+background:white;
+
+padding:35px;
+
+border-radius:35px;
+
+text-align:center;
+
+box-shadow:0 15px 50px rgba(0,0,0,.15);
+}
+
+.card-title{
+
+font-size:2.5rem;
+
+color:#c2697a;
+
+margin-bottom:10px;
+}
+
+.card-text{
+
+margin-bottom:25px;
+
+color:#654242;
+}
+
+
+/* ROWS + COLUMNS IMAGE GRID */
+
+.memory-gallery{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(200px,1fr));
+
+gap:18px;
+
+width:100%;
+}
+
+
+/* IMAGE STYLE */
+
+.memory-gallery img{
+
+width:100%;
+
+height:220px;
+
+border-radius:18px;
+
+padding:8px;
+
+background:white;
+
+box-shadow:
+0 8px 20px rgba(0,0,0,.15);
+
+object-fit:cover;
+
+transition:.4s;
+}
+
+.memory-gallery img:hover{
+
+transform:scale(1.05);
+
+}
+
+</style>
+<!-- LETTER -->
+
+<div class="page-card">
+
+<div class="card-box">
+
+<h2 class="card-title">
+A Letter For You ♡
+</h2>
+
+<p class="card-text">
+A special letter only for you 💕
+</p>
+
+<div class="letter-image">
+
+<img src="letter.png" alt="Letter">
+
+</div>
+
+</div>
+
+</div>
+
+
+<style>
+
+/* LETTER CARD */
+
+.card-box{
+
+width:95%;
+
+max-width:1000px;
+
+background:white;
+
+padding:35px;
+
+border-radius:30px;
+
+text-align:center;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.15);
+
+margin:auto;
+}
+
+.card-title{
+
+font-size:2.8rem;
+
+color:#c2697a;
+
+margin-bottom:10px;
+}
+
+.card-text{
+
+color:#654242;
+
+margin-bottom:20px;
+
+font-size:18px;
+}
+
+
+/* IMAGE CONTAINER */
+
+.letter-image{
+
+width:100%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+}
+
+
+/* FULL IMAGE */
+
+.letter-image img{
+
+width:100%;
+
+max-width:900px;
+
+height:auto;
+
+object-fit:contain;
+
+border-radius:20px;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.2);
+
+transition:.4s;
+}
+
+.letter-image img:hover{
+
+transform:scale(1.02);
+
+}
+
+</style>
+
+
+<!-- SURPRISE -->
+
+<div class="page-card">
+
+<div class="card-box">
+
+<h2 class="card-title">
+🎁 Surprise
+</h2>
+
+<p class="card-text">
+
+Tap below... something special is waiting 👀
+
+</p>
+
+<button class="surprise-btn" onclick="openSurprise()">
+
+Open Surprise ✨
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SWIPE BUTTONS -->
+
+<div class="swipe-buttons">
+
+<button onclick="prevSlide()">⬅ Previous</button>
+
+<button onclick="nextSlide()">Next ➡</button>
+
+</div>
+
+
+<!-- POPUP -->
+
+<div class="modal-overlay" id="surpriseModal">
+
+<div class="modal-box">
+
+<h1>For Birthday Girl 💕</h1>
+
+<p>
+
+tuzya life madhala  saglyat motha surprise tr <br>
+ sanika didi aani dhanashree didi aahe  mag ajun kay pahije aaaaa..!!!♡😁😁<br>
+
+
+</p>
+
+
+
+</div>
+
+</div>
+
+
+<script>
+
+let currentSlide=0;
+
+function goCard(index){
+
+currentSlide=index;
+
+document
+.querySelector(".page-container")
+.scrollTo({
+
+left:index*window.innerWidth,
+
+behavior:"smooth"
+
+});
+
+}
+
+
+function nextSlide(){
+
+let total=
+document.querySelectorAll(".page-card").length;
+
+if(currentSlide<total-1){
+
+currentSlide++;
+
+goCard(currentSlide);
+
+}
+
+}
+
+
+function prevSlide(){
+
+if(currentSlide>0){
+
+currentSlide--;
+
+goCard(currentSlide);
+
+}
+
+}
+
+
+/* popup */
+
+function openSurprise(){
+
+document
+.getElementById("surpriseModal")
+.classList.add("active");
+
+}
+
+function showSecret(){
+
+document
+.getElementById("secretText")
+.classList.toggle("show");
+
+}
+
+document
+.getElementById("surpriseModal")
+
+.addEventListener(
+
+"click",
+
+function(e){
+
+if(e.target===this){
+
+this.classList.remove("active");
+
+}
+
+}
+
+);
+
+
+/* touch swipe */
+
+let slider=
+document.querySelector(".page-container");
+
+let startX=0;
+
+slider.addEventListener(
+"touchstart",
+e=>{
+
+startX=e.touches[0].clientX;
+
+});
+
+slider.addEventListener(
+"touchend",
+e=>{
+
+let endX=
+e.changedTouches[0].clientX;
+
+if(startX-endX>50){
+
+nextSlide();
+
+}
+
+if(endX-startX>50){
+
+prevSlide();
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
